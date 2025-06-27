@@ -1,0 +1,12 @@
+CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
+  dept_name IN VARCHAR2,
+  bonus_percent IN NUMBER
+) IS
+BEGIN
+  UPDATE employees
+  SET salary = salary + (salary * bonus_percent / 100)
+  WHERE LOWER(department) = LOWER(dept_name);
+
+  COMMIT;
+END;
+
