@@ -1,0 +1,37 @@
+1. JPA (Java Persistence API)
+What it is: A specification (interface) - part of Java EE (now Jakarta EE).
+
+Purpose: Defines how Java objects (entities) are mapped to database tables.
+
+Contains: Annotations (@Entity, @Id, @OneToMany, etc.) and APIs (EntityManager, Query, etc.)
+
+It does not provide an implementation - just contracts.
+
+
+2. Hibernate
+What it is: A popular implementation of the JPA specification.
+
+Purpose: Provides the actual working code behind the JPA interfaces.
+
+Features beyond JPA:
+
+Native APIs like Session, Criteria, HQL
+
+Better caching, lazy/eager loading options, etc.
+
+Hibernate = Implementation of JPA + extra powerful features
+
+🔹 3. Spring Data JPA
+What it is: A Spring-based abstraction over JPA (typically using Hibernate under the hood).
+
+Purpose: Simplifies JPA-based data access by reducing boilerplate code.
+
+Key Feature: Automatically creates repository implementations using interfaces.
+
+Example:
+
+public interface BookRepository extends JpaRepository<Book, Long> {
+    List<Book> findByTitle(String title); // auto-implemented!
+}
+
+Spring Data JPA = JPA + Hibernate + auto Repository magic (Spring style)
